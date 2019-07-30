@@ -1,0 +1,12 @@
+{
+  "name": "cli-stats",
+  "version": "1.0.0",
+  "description": "get system information of a file or directory from CLI",
+  "main": "index.js",
+  "author": "Manuel Gonzalez",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.20.0",
+    "moment": "^2.24.0"
+  }
+}
