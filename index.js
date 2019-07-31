@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const program = require("commander");
 const moment = require("moment");
+const inquirer = require('inquirer');
+const glob = require('glob');
 
 // TODOS: 
 // - Install and integrate inquirer package.
@@ -11,37 +13,50 @@ const moment = require("moment");
 
 // TODOS:
 // move to helpers directory
-const isFile = mode => mode & 0100000 ? 'file' : '-';
-const isDirectory = mode => mode & 0040000 ? 'directory' : '-';
-const ResourceType = mode => isFile(mode) ? isFile(mode) : isDirectory(mode)
+const ResourceType = stats => stats.isDirectory() ? 'directory' : 'file';
 
 // TODOS:
 // stats function should be in own file.
-const stats = yourPath => (
-  fs.stat(yourPath, (err, stats) => {
-    // TODOS:
-    // missing error function.
+const stats = pathResolved => {
+  const fileStats = fs.statSync(pathResolved);
+  // TODOS:
+  // missing error function.
 
-    // TODOS:
-    // refactor size function
-    console.log("size", stats["size"])
+  // TODOS:
+  // refactor size function
+  if (ResourceType(fileStats) === 'directory') {
+    console.log("open directory");
+  } else {
+    console.log("size", `${fileStats["size"]} bytes`)
+  }
 
-    // TODOS: 
-    // refactor last modify time function
-    console.log("last modify time:", moment(stats["mtime"]).fromNow());
+  // TODOS: 
+  // refactor last modify time function
+  console.log("last modify time:", moment(fileStats["mtime"]).fromNow());
   
-    const mode = stats["mode"];
-    console.log('Resource type:', ResourceType(mode));
-  })  
-);
+  console.log('Resource type:', ResourceType(fileStats));
+};
 
-const receiver = yourPath => {
-  const pathResolved = path.resolve(yourPath);
-  return stats(pathResolved);
+const receiver = () => {
+  const currentFileSystem = glob.sync(`${process.cwd()}/*`);
+  const formattedFileSystem = currentFileSystem.map(file => path.basename(file));
+  
+  inquirer
+    .prompt([
+      {
+        type: 'list',
+        name: 'resource',
+        message: 'Select a resource',
+        choices: formattedFileSystem
+      }
+    ])
+    .then(answers => {
+      const pathResolved = path.resolve(answers.resource);
+      return stats(pathResolved); 
+    });
 };
 
 program
   .version('1.0.0')
-  .option('-p, --your-path', 'Add a path')
   .action(receiver)
   .parse(process.argv);
