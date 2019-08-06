@@ -1,12 +1,12 @@
 {
-  "name": "cli-stats",
+  "name": "stats-cli",
   "version": "1.0.0",
   "description": "get system information of a file or directory from CLI",
   "main": "index.js",
   "author": "Manuel Gonzalez",
   "license": "MIT",
   "scripts": {
-    "cli-stats": "node src/index"
+    "stats-cli": "node src/index"
   },
   "dependencies": {
     "commander": "^2.20.0",
