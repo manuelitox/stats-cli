@@ -9,6 +9,7 @@
     "stats-cli": "node src/index"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "glob": "^7.1.4",
     "inquirer": "^6.5.0",

@@ -6,12 +6,12 @@ const myEmitter = require("./event-emitter");
 const askQuestions = require("./ask-questions");
 
 myEmitter.on('event', filesPath => {
-  console.clear();
   receiver(filesPath);
 });
 
-const receiver = async (filesSystem) => { 
-  let answers = await askQuestions(filesSystem);
+
+const receiver = async (filesSystem) => {
+  const answers = await askQuestions(filesSystem);
   return stats(answers.resource, myEmitter);
 };
 
