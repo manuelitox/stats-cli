@@ -10,12 +10,12 @@ const stats = (pathResolved, myEmitter) => {
 
   if (Helpers.ResourceType(fileStats) === "directory") {
     const filesPath = glob.sync(`${pathResolved}/*`);
-    myEmitter.emit("event", filesPath);
-  } else {
-    console.log("size", chalk.green(`${fileStats["size"]} bytes`))
-    console.log("last modify time:", chalk.green(moment(fileStats["mtime"]).fromNow()));  
-    console.log("Resource type:", chalk.green(Helpers.ResourceType(fileStats)));
+    return myEmitter.emit("event", filesPath);
   }
+  
+  console.log("size", chalk.green(`${fileStats["size"]} bytes`))
+  console.log("last modify time:", chalk.green(moment(fileStats["mtime"]).fromNow()));  
+  console.log("Resource type:", chalk.green(Helpers.ResourceType(fileStats)));
 };
 
 module.exports = stats;
