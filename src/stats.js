@@ -12,10 +12,16 @@ const stats = (pathResolved, myEmitter) => {
     const filesPath = glob.sync(`${pathResolved}/*`);
     return myEmitter.emit("event", filesPath);
   }
+
+  console.log(`
   
-  console.log("size", chalk.green(`${fileStats["size"]} bytes`))
-  console.log("last modify time:", chalk.green(moment(fileStats["mtime"]).fromNow()));  
-  console.log("Resource type:", chalk.green(Helpers.ResourceType(fileStats)));
+    Information:
+    ___________________________________________________
+
+    Size: ${chalk.green(`${fileStats["size"]} bytes`)}
+    Last modify time: ${chalk.green(moment(fileStats["mtime"]).fromNow())}
+    Resource type: ${chalk.green(Helpers.ResourceType(fileStats))}
+  `);
 };
 
 module.exports = stats;
