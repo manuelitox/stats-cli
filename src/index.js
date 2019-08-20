@@ -3,16 +3,16 @@ const program = require("commander");
 
 const stats = require("./stats");
 const myEmitter = require("./event-emitter");
-const askQuestions = require("./ask-questions");
+const generateItems = require("./generate-items");
 
 myEmitter.on('event', filesPath => {
   receiver(filesPath);
 });
 
-
 const receiver = async (filesSystem) => {
-  const answers = await askQuestions(filesSystem);
-  return stats(answers.resource, myEmitter);
+  const rootPath = process.cwd();
+  let items = await generateItems(filesSystem, rootPath);
+  return stats(items.resource, myEmitter);
 };
 
 program

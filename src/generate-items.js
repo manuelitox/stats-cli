@@ -1,16 +1,19 @@
 const inquirer = require('inquirer');
+
 const Helpers = require("./helpers");
 
-const askQuestions = filesSystem => { 
+const generateItems = (filesSystem, rootPath) => { 
+  let choices = Helpers.formattedFileSystem(filesSystem);
+  choices = Helpers.generateBackToRoot(choices, rootPath);
   const questions = [
     {
       type: 'list',
       name: 'resource',
       message: 'Select a resource',
-      choices: Helpers.formattedFileSystem(filesSystem)
+      choices
     }
   ];
   return inquirer.prompt(questions);
 }
 
-module.exports = askQuestions;
+module.exports = generateItems;
