@@ -1,10 +1,15 @@
-const inquirer = require('inquirer');
+import inquirer from "inquirer";
 
-const Helpers = require("./helpers");
+import {formattedFileSystem, generateBackToRoot} from "./helpers";
 
-const generateItems = (filesSystem, rootPath) => { 
-  let choices = Helpers.formattedFileSystem(filesSystem);
-  choices = Helpers.generateBackToRoot(choices, rootPath);
+const generateItems = (fileSystem, rootPath) => { 
+  if (!fileSystem) return "fileSystem is undefined";
+  if (!Array.isArray(fileSystem)) return "fileSystem has to be an array";
+  if (!rootPath) return "rootPath is undefined";
+  if (typeof rootPath !== "string") return "rootPath has to be a string";
+
+  let choices = formattedFileSystem(fileSystem);
+  choices = generateBackToRoot(choices, rootPath);
   const questions = [
     {
       type: 'list',
@@ -16,4 +21,4 @@ const generateItems = (filesSystem, rootPath) => {
   return inquirer.prompt(questions);
 }
 
-module.exports = generateItems;
+export default generateItems;
