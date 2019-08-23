@@ -3,3 +3,6 @@
 
 # History files
 .history
+
+# coverate
+/coverage
