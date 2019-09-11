@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "stats-cli": "bin/index"
+    "stats-cli": "bin/index",
+    "stats-cli-node": "node -r esm src/index"
   },
   "bin": {
     "stats-cli": "bin/index"
@@ -28,6 +29,7 @@
     "@babel/preset-env": "^7.5.5",
     "babel-jest": "^24.9.0",
     "babel-plugin-module-resolver": "^3.2.0",
+    "esm": "^3.2.25",
     "jest": "^24.9.0"
   }
 }
