@@ -20,7 +20,7 @@ const stats = (pathResolved, myEmitter) => {
 
     Size: ${chalk.green(`${fileStats["size"]} bytes`)}
     Last modify time: ${chalk.green(moment(fileStats["mtime"]).fromNow())}
-    Resource type: ${chalk.green(ResourceType(fileStats))}
+    Resource type: ${chalk.green(resourceType(fileStats))}
   `);
 };
 
