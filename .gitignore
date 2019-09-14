@@ -6,3 +6,6 @@
 
 # coverate
 /coverage
+
+# prod files
+/dist
