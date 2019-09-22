@@ -7,7 +7,7 @@ import {resourceType} from "./helpers";
 
 const stats = (pathResolved, myEmitter) => {
   const fileStats = fs.statSync(pathResolved);
-
+  
   if (resourceType(fileStats) === "directory") {
     const filesPath = glob.sync(`${pathResolved}/*`);
     return myEmitter.emit("event", filesPath);
