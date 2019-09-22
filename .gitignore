@@ -3,3 +3,9 @@
 
 # History files
 .history
+
+# coverate
+/coverage
+
+# prod files
+/dist

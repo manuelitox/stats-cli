@@ -2,20 +2,43 @@
   "name": "stats-cli",
   "version": "1.0.0",
   "description": "get system information of a file or directory from CLI",
-  "main": "src/index.js",
+  "main": "dist/index.cjs.js",
   "author": "Manuel Gonzalez",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
+    "build": "rollup -c",
     "stats-cli": "bin/index"
   },
   "bin": {
     "stats-cli": "bin/index"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
   "dependencies": {
+    "@babel/runtime": "^7.6.0",
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "glob": "^7.1.4",
     "inquirer": "^6.5.0",
     "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "esm": "^3.2.25",
+    "jest": "^24.9.0",
+    "rollup": "^1.21.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-babel-minify": "^9.0.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^5.2.0"
   }
 }

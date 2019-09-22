@@ -1,9 +1,9 @@
-const glob = require('glob');
-const program = require("commander");
+import glob from "glob";
+import program from "commander";
 
-const stats = require("./stats");
-const myEmitter = require("./event-emitter");
-const generateItems = require("./generate-items");
+import stats from "./stats";
+import myEmitter from "./event-emitter";
+import generateItems from "./generate-items";
 
 myEmitter.on('event', filesPath => {
   receiver(filesPath);

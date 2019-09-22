@@ -1,11 +1,11 @@
-const path = require("path");
+import path from "path";
 
-const formattedFileSystem = fileSystem => ( 
-  fileSystem.map((file, index) => ({
+export const formattedFileSystem = fileSystem => {
+  if (!fileSystem) return "fileSystem is undefined";
+  if (!Array.isArray(fileSystem)) return "fileSystem has to be an array";
+  return fileSystem.map((file, index) => ({
     key: index,
     name: path.basename(file),
     value: file
   }))
-);
-
-module.exports = formattedFileSystem;
+};

@@ -1,14 +1,14 @@
-const fs = require("fs");
-const glob = require("glob");
-const chalk = require("chalk");
-const moment = require("moment");
+import fs from "fs";
+import glob from "glob";
+import chalk from "chalk";
+import moment from "moment";
 
-const Helpers = require("./helpers");
+import {resourceType} from "./helpers";
 
 const stats = (pathResolved, myEmitter) => {
   const fileStats = fs.statSync(pathResolved);
-
-  if (Helpers.ResourceType(fileStats) === "directory") {
+  
+  if (resourceType(fileStats) === "directory") {
     const filesPath = glob.sync(`${pathResolved}/*`);
     return myEmitter.emit("event", filesPath);
   }
@@ -20,8 +20,8 @@ const stats = (pathResolved, myEmitter) => {
 
     Size: ${chalk.green(`${fileStats["size"]} bytes`)}
     Last modify time: ${chalk.green(moment(fileStats["mtime"]).fromNow())}
-    Resource type: ${chalk.green(Helpers.ResourceType(fileStats))}
+    Resource type: ${chalk.green(resourceType(fileStats))}
   `);
 };
 
-module.exports = stats;
+export default stats;

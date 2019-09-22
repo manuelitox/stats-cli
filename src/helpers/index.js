@@ -1,9 +1,9 @@
-const ResourceType = require("./resource-type");
-const generateBackToRoot = require("./generate-back-to-root");
-const formattedFileSystem = require("./formatted-file-system");
+import {resourceType} from "./resource-type";
+import {generateBackToRoot} from "./generate-back-to-root";
+import {formattedFileSystem} from "./formatted-file-system";
 
-module.exports = {
-  ResourceType,
+export {
+  resourceType,
   generateBackToRoot,
   formattedFileSystem
-};
+}
