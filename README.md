@@ -1,17 +1,19 @@
 # Stats CLI
 
-Get relevant file information in your project from CLI
+![demo](https://github.com/manuelitox/stats-cli/blob/master/demo.gif)
+
+Get relevant file information of your project from a CLI
 
 ## Install:
 
-- Add package `yarn add stats-cli` or `npm install stats-cli --save`
+- run `yarn add stats-cli` or `npm install stats-cli --save`
 
 ## How to use:
 
-- Add a script into package.json:
+- Add stats-cli script into your package.json:
 ```javascript
-  "scripts": {
-    "stats-cli": "stats-cli" 
-  }
+    "scripts": {
+      "stats-cli": "stats-cli" 
+    }
 ```
-- By last, go to project root directory and run `yarn stats-cli` and start magic
+- By last, go to root directory of your project and run `yarn stats-cli` and start magic ✨
