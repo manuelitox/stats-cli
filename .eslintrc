@@ -3,16 +3,24 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "max-len": ["error", 80]
+    "max-len": ["error", 100]  
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "settings": {
     "import/resolver": {
+      "alias": {
+        "map": [
+          ["src", "./src"]
+        ],
+        "extensions": [".js"]
+      }, 
+      "node": {},
       "webpack": {
         "src": "./src"
       }
-    }
+    }   
   }
 }
