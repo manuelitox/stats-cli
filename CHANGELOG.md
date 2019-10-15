@@ -17,7 +17,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Breaking Changes
 
-## [1.0.0-beta.1] - 2019-08-05
+## [1.0.1] - 2019-10-15
+
+### Fixed
+
+- Rename project to `@manuelitox/stats-cli`
+
+## [1.0.0] - 2019-10-15
 
 ### Added
 
