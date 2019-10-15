@@ -5,6 +5,9 @@
   "main": "dist/index.cjs.js",
   "author": "Manuel Gonzalez",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest",
     "lint": "eslint src -c .eslintrc --ext js",
