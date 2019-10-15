@@ -1,4 +1,6 @@
-# Stats CLI
+[![Build Status](https://travis-ci.org/manuelitox/stats-cli.svg?branch=master)](https://travis-ci.org/manuelitox/stats-cli)
+
+# Stats CLI 
 
 ![demo](https://github.com/manuelitox/stats-cli/blob/master/demo.gif)
 
