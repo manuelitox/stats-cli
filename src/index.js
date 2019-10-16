@@ -1,5 +1,6 @@
 import glob from 'glob';
 import program from 'commander';
+import pkg from '../package.json';
 
 import stats from './stats';
 import myEmitter from './event-emitter';
@@ -16,6 +17,6 @@ myEmitter.on('event', filesPath => {
 });
 
 program
-  .version('1.0.0')
+  .version(pkg.version)
   .action(() => receiver(glob.sync(`${process.cwd()}/*`)))
   .parse(process.argv);
