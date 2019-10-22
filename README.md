@@ -8,8 +8,8 @@ Get relevant file information of your project from a CLI
 
 ## Install:
 
-- run `yarn add stats-cli` or `npm install stats-cli --save`
+- run `yarn add @manuelitox/stats-cli` or `npm install @manuelitox/stats-cli --save`
 
 ## How to use:
 
-- By last, go to root directory of your project and run `yarn stats-cli` and start magic ✨
+- By last, go to root directory of your project and run `yarn @manuelitox/stats-cli` and start magic ✨

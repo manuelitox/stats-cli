@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Breaking Changes
 
+## [1.0.4] - 2019-10-22
+
+### Fixed
+
+- Fix script typos in readme
+
 ## [1.0.3] - 2019-10-16
 
 ### Changed
